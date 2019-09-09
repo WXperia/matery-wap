@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="<%= config.language %>">
+<%- partial('_partial/head') %>
+<body>
+<div class="self-mask"></div>
+<%- partial('_partial/header') %>
+<%- body %>
+<%- partial('_partial/footer') %>
+<script src="/live2d-widget-master/autoload.js"></script>
+<%- partial('_partial/search') %>
+<%- partial('_partial/back-top') %>
+
+<script src="<%- theme.libs.js.materialize %>"></script>
+<script src="<%- theme.libs.js.masonry %>"></script>
+<script src="<%- theme.libs.js.aos %>"></script>
+<script src="<%- theme.libs.js.scrollProgress %>"></script>
+<script src="<%- theme.libs.js.lightgallery %>"></script>
+<script src="/js/matery.js"></script>
+
+<%- partial('_partial/google-analytics') %>
+<% if (theme.clicklove.enable) { %>
+    <script src="<%- theme.libs.js.clicklove %>"></script>
+<% } %>
+<% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+    <script async src="<%- theme.libs.js.busuanzi %>"></script>
+<% } %>
+<!-- <script src="/live2d-widget-master/autoload.js"></script> -->
+<script id="__bs_script__">
+//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));
+//]]>
+</script>
+<script>
+     var OriginTitle = document.title;
+    var titleTime;
+ document.addEventListener('visibilitychange', function () {
+     if (document.hidden) {
+         $('[rel="icon"]').attr('href', "/img/TEP.ico");
+         document.title = '╭(°A°`)╮ 页面崩溃啦 ~' ;
+         clearTimeout(titleTime);
+     }
+     else {
+         $('[rel="icon"]').attr('href', "/favicon.jpg");
+         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
+         titleTime = setTimeout(function () {
+             document.title = OriginTitle;
+         }, 2000);
+     }
+ });
+//  window.onresize = function(){
+    
+//      var height = document.body.scrollHeight
+//      console.log(height)
+//      body.style.height = height;
+//  }
+</script>
+</body>
+</html>
